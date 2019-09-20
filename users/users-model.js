@@ -5,7 +5,8 @@ module.exports = {
 	find,
 	findBy,
 	findById,
-	findDepartment
+	findDepartment,
+	remove,
 };
 
 function find() {
@@ -33,4 +34,10 @@ function findDepartment(username) {
 		.select('department')
 		.where({username})
 		.first();
+};
+
+function remove(id) {
+	return db('users')
+		.where({ id })
+		.del();
 };
